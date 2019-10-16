@@ -13,35 +13,32 @@ use App\Producto;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
 Route::get('productos', function () {
-    return response(Product::all(),200);
+    return response(Producto::all(),200);
 });
  
 Route::get('productos/{producto}', function ($productId) {
-    return response(Product::find($productId), 200);
+    return response(Producto::find($productId), 200);
 });
   
  
 Route::post('productos', function(Request $request) {
-   $resp = Product::create($request->all());
+   $resp = Producto::create($request->all());
     return $resp;
  
 });
  
-Route::put('productos/{producto}', function(Request $request, $productId) {
-    $product = Product::findOrFail($productId);
+Route::put('update/{producto}', function(Request $request, $productId) {
+    $product = Producto::findOrFail($productId);
     $product->update($request->all());
     return $product;
 });
  
-Route::delete('productos/{producto}',function($productId) {
-    Product::find($productId)->delete();
- 
-    return 204;
- 
+Route::get('borrar/{producto}',function($producto) {
+    Producto::destroy($producto);
+    return 'User  deleted';
 });
