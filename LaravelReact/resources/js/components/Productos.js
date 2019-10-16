@@ -1,24 +1,33 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 
-export default class Productos extends Component {
-    render() {
-        return (
-            <div className="container">
-                <div className="row justify-content-center">
-                    <div className="col-md-8">
-                        <div className="card">
-                            <div className="card-header">Productos en Stock</div>
+/* Stateless component or pure component
+ * { product } syntax is the object destructing
+ */
+const Productos = ({producto}) => {
+   
+  const divStyle = {
+      display: 'flex',
+      flexDirection: 'column',
+      width: '65%',
+      margin: '30px 10px 10px 30px'
+  }
 
-                            <div className="card-body">Nuevos Productos</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        );
-    }
+  //if the props for product is null, return Product doesn't exist
+  if(!product) {
+
+    return(<div style={divStyle}><h2>  No Product was selected </h2> </div>);
+  }
+    
+  //Else, display the product data
+  return(  
+    <div style={divStyle}> 
+      <h2> {product.title} </h2>
+      <p> {product.descripcion} </p>
+      <h3> Status {product.disponibilidad ? 'Available' : 'Out of stock'} </h3>
+      <h3> Price : {product.precio} </h3>
+     
+    </div>
+  )
 }
 
-if (document.getElementById('productos')) {
-    ReactDOM.render(<Productos />, document.getElementById('productos'));
-}
+export default Productos ;

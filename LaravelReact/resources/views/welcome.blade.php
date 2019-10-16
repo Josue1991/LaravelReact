@@ -65,7 +65,7 @@
     </head>
     <body>
     <div class="content">
-    <div id="productos" class="title m-b-md">
+    <div id="root" class="title m-b-md">
     </div>
     </body>
     <script type="text/javascript" src="js/app.js"></script>

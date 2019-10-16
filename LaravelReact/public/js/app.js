@@ -51339,7 +51339,7 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
  */
 
 
-__webpack_require__(/*! ./components/Productos */ "./resources/js/components/Productos.js");
+__webpack_require__(/*! ./components/Main */ "./resources/js/components/Main.js");
 
 /***/ }),
 
@@ -51375,20 +51375,17 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
-/***/ "./resources/js/components/Productos.js":
-/*!**********************************************!*\
-  !*** ./resources/js/components/Productos.js ***!
-  \**********************************************/
+/***/ "./resources/js/components/AddProductos.js":
+/*!*************************************************!*\
+  !*** ./resources/js/components/AddProductos.js ***!
+  \*************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Productos; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -51399,9 +51396,152 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+var AddProductos =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(AddProductos, _Component);
+
+  function AddProductos(props) {
+    var _this;
+
+    _classCallCheck(this, AddProductos);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(AddProductos).call(this, props));
+    /* Initialize the state. */
+
+    _this.state = {
+      newProduct: {
+        title: '',
+        descripcion: '',
+        precio: 0,
+        disponibilidad: 0
+      }
+    }; //Boilerplate code for binding methods with `this`
+
+    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
+    _this.handleInput = _this.handleInput.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+  /* This method dynamically accepts inputs and stores it in the state */
+
+
+  _createClass(AddProductos, [{
+    key: "handleInput",
+    value: function handleInput(key, e) {
+      /*Duplicating and updating the state */
+      var state = Object.assign({}, this.state.newProduct);
+      state[key] = e.target.value;
+      this.setState({
+        newProduct: state
+      });
+    }
+    /* This method is invoked when submit button is pressed */
+
+  }, {
+    key: "handleSubmit",
+    value: function handleSubmit(e) {
+      //preventDefault prevents page reload   
+      e.preventDefault();
+      /*A call back to the onAdd props. The control is handed over
+       *to the parent component. The current state is passed 
+       *as a param
+       */
+
+      this.props.onAdd(this.state.newProduct);
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this2 = this;
+
+      var divStyle = {
+        position: 'absolute',
+        left: '35%',
+        top: '60%',
+        flexDirection: 'space-between',
+        marginLeft: '30px'
+      };
+      var inputStyle = {
+        margin: '0px 10px 0px 10px'
+      };
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        style: divStyle
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, " Add new product "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        onSubmit: this.handleSubmit
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Title:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        style: inputStyle,
+        type: "text",
+        onChange: function onChange(e) {
+          return _this2.handleInput('title', e);
+        }
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Description:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        style: inputStyle,
+        type: "text",
+        onChange: function onChange(e) {
+          return _this2.handleInput('description', e);
+        }
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Price:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        style: inputStyle,
+        type: "number",
+        onChange: function onChange(e) {
+          return _this2.handleInput('price', e);
+        }
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        style: inputStyle,
+        type: "submit",
+        value: "Submit"
+      }))));
+    }
+  }]);
+
+  return AddProductos;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+/* harmony default export */ __webpack_exports__["default"] = (AddProduct);
+
+/***/ }),
+
+/***/ "./resources/js/components/Main.js":
+/*!*****************************************!*\
+  !*** ./resources/js/components/Main.js ***!
+  \*****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Main; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _Productos__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Productos */ "./resources/js/components/Productos.js");
+/* harmony import */ var _AddProductos__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./AddProductos */ "./resources/js/components/AddProductos.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
@@ -51410,44 +51550,189 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
-var Productos =
+
+/* Main Component */
+
+var Main =
 /*#__PURE__*/
 function (_Component) {
-  _inherits(Productos, _Component);
+  _inherits(Main, _Component);
 
-  function Productos() {
-    _classCallCheck(this, Productos);
+  function Main() {
+    var _this;
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(Productos).apply(this, arguments));
+    _classCallCheck(this, Main);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Main).call(this)); //Initialize the state in the constructor
+
+    _this.state = {
+      products: [],
+      currentProducto: null
+    };
+    _this.handleAddProduct = _this.handleAddProduct.bind(_assertThisInitialized(_this));
+    return _this;
   }
+  /*componentDidMount() is a lifecycle method
+   * that gets called after the component is rendered
+   */
 
-  _createClass(Productos, [{
+
+  _createClass(Main, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      /* fetch API in action */
+      fetch('/api/productos').then(function (response) {
+        return response.json();
+      }).then(function (productos) {
+        //Fetched product is stored in the state
+        _this2.setState({
+          productos: productos
+        });
+      });
+    }
+  }, {
+    key: "renderProductos",
+    value: function renderProductos() {
+      var _this3 = this;
+
+      var listStyle = {
+        listStyle: 'none',
+        fontSize: '18px',
+        lineHeight: '1.8em'
+      };
+      return this.state.productos.map(function (producto) {
+        return (
+          /* When using list you need to specify a key
+           * attribute that is unique for each list item
+          */
+          react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+            style: listStyle,
+            onClick: function onClick() {
+              return _this3.handleClick(producto);
+            },
+            key: producto.id
+          }, producto.title)
+        );
+      });
+    }
+  }, {
+    key: "handleClick",
+    value: function handleClick(producto) {
+      //handleClick is used to set the state
+      this.setState({
+        currentProducto: producto
+      });
+    }
+  }, {
+    key: "handleAddProducto",
+    value: function handleAddProducto(producto) {
+      var _this4 = this;
+
+      producto.precio = Number(producto.precio);
+      /*Fetch API for post request */
+
+      fetch('api/productos/', {
+        method: 'post',
+
+        /* headers are important*/
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(producto)
+      }).then(function (response) {
+        return response.json();
+      }).then(function (data) {
+        _this4.setState(function (prevState) {
+          return {
+            products: prevState.productos.concat(data),
+            currentProducto: data
+          };
+        });
+      }); //update the state of products and currentProduct
+    }
+  }, {
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "container"
+      var _divStyle;
+
+      var mainDivStyle = {
+        display: "flex",
+        flexDirection: "row"
+      };
+      var divStyle = (_divStyle = {
+        justifyContent: "flex-start",
+        padding: '10px',
+        width: '35%',
+        background: '#f0f0f0'
+      }, _defineProperty(_divStyle, "padding", '20px 20px 20px 20px'), _defineProperty(_divStyle, "margin", '30px 10px 10px 30px'), _divStyle);
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        style: mainDivStyle
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "row justify-content-center"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-md-8"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "card"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "card-header"
-      }, "Productos en Stock"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "card-body"
-      }, "Nuevos Productos")))));
+        style: divStyle
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, " All products "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, this.renderProductos())), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Productos__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        producto: this.state.currentProducto
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_AddProductos__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        onAdd: this.handleAddProducto
+      })));
     }
   }]);
 
-  return Productos;
+  return Main;
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+/* The if statement is required so as to Render the component 
+ * on pages that have a div with an ID of "root";  
+ */
 
 
 
-if (document.getElementById('productos')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Productos, null), document.getElementById('productos'));
+
+if (document.getElementById('root')) {
+  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Main, null), document.getElementById('root'));
 }
+
+/***/ }),
+
+/***/ "./resources/js/components/Productos.js":
+/*!**********************************************!*\
+  !*** ./resources/js/components/Productos.js ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+/* Stateless component or pure component
+ * { product } syntax is the object destructing
+ */
+
+var Productos = function Productos(_ref) {
+  var producto = _ref.producto;
+  var divStyle = {
+    display: 'flex',
+    flexDirection: 'column',
+    width: '65%',
+    margin: '30px 10px 10px 30px'
+  }; //if the props for product is null, return Product doesn't exist
+
+  if (!product) {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      style: divStyle
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "  No Product was selected "), " ");
+  } //Else, display the product data
+
+
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    style: divStyle
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, " ", product.title, " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, " ", product.descripcion, " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, " Status ", product.disponibilidad ? 'Available' : 'Out of stock', " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, " Price : ", product.precio, " "));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Productos);
 
 /***/ }),
 
