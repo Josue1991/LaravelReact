@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import Producto from './Productos';
-import AddProducto from './AddProductos';
+import AddProductos from './AddProductos';
 
 /* Main Component */
 export default class Main extends Component {
@@ -11,11 +11,11 @@ export default class Main extends Component {
     super();
     //Initialize the state in the constructor
     this.state = {
-        products: [],
+        productos: [],
         currentProducto: null
     
     }
-     this.handleAddProduct = this.handleAddProduct.bind(this);
+     this.handleAddProducto = this.handleAddProducto.bind(this);
   }
   /*componentDidMount() is a lifecycle method
    * that gets called after the component is rendered
@@ -78,11 +78,11 @@ export default class Main extends Component {
     .then( data => {
        
         this.setState((prevState)=> ({
-            products: prevState.productos.concat(data),
+            productos: prevState.productos.concat(data),
             currentProducto : data
         }))
     })
- //update the state of products and currentProduct
+ //update the state of productos and currentProduct
   }  
     
   render() {
@@ -107,14 +107,14 @@ export default class Main extends Component {
         <div>
           <div style= {mainDivStyle}>
             <div style={divStyle}>
-                <h3> All products </h3>
+                <h3> All productos </h3>
                   <ul>
                     { this.renderProductos() }
                   </ul> 
 
             </div> 
                 <Producto producto={this.state.currentProducto} />
-                <AddProducto onAdd={this.handleAddProducto} /> 
+                <AddProductos onAdd={this.handleAddProducto} /> 
           </div>
               
         </div>

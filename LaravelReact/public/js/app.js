@@ -51507,7 +51507,7 @@ function (_Component) {
   return AddProductos;
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
-/* harmony default export */ __webpack_exports__["default"] = (AddProduct);
+/* harmony default export */ __webpack_exports__["default"] = (AddProductos);
 
 /***/ }),
 
@@ -51566,10 +51566,10 @@ function (_Component) {
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Main).call(this)); //Initialize the state in the constructor
 
     _this.state = {
-      products: [],
+      productos: [],
       currentProducto: null
     };
-    _this.handleAddProduct = _this.handleAddProduct.bind(_assertThisInitialized(_this));
+    _this.handleAddProducto = _this.handleAddProducto.bind(_assertThisInitialized(_this));
     return _this;
   }
   /*componentDidMount() is a lifecycle method
@@ -51647,11 +51647,11 @@ function (_Component) {
       }).then(function (data) {
         _this4.setState(function (prevState) {
           return {
-            products: prevState.productos.concat(data),
+            productos: prevState.productos.concat(data),
             currentProducto: data
           };
         });
-      }); //update the state of products and currentProduct
+      }); //update the state of productos and currentProduct
     }
   }, {
     key: "render",
@@ -51672,7 +51672,7 @@ function (_Component) {
         style: mainDivStyle
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         style: divStyle
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, " All products "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, this.renderProductos())), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Productos__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, " All productos "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, this.renderProductos())), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Productos__WEBPACK_IMPORTED_MODULE_2__["default"], {
         producto: this.state.currentProducto
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_AddProductos__WEBPACK_IMPORTED_MODULE_3__["default"], {
         onAdd: this.handleAddProducto
@@ -51720,7 +51720,7 @@ var Productos = function Productos(_ref) {
     margin: '30px 10px 10px 30px'
   }; //if the props for product is null, return Product doesn't exist
 
-  if (!product) {
+  if (!producto) {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       style: divStyle
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "  No Product was selected "), " ");
@@ -51729,7 +51729,7 @@ var Productos = function Productos(_ref) {
 
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     style: divStyle
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, " ", product.title, " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, " ", product.descripcion, " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, " Status ", product.disponibilidad ? 'Available' : 'Out of stock', " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, " Price : ", product.precio, " "));
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, " ", producto.title, " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, " ", producto.descripcion, " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, " Status ", producto.disponibilidad ? 'Available' : 'Out of stock', " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, " Price : ", producto.precio, " "));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Productos);
@@ -51754,8 +51754,8 @@ var Productos = function Productos(_ref) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/josuecarranza/LaravelReact/LaravelReact/LaravelReact/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /home/josuecarranza/LaravelReact/LaravelReact/LaravelReact/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! E:\xammp\htdocs\LaravelReact\LaravelReact\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! E:\xammp\htdocs\LaravelReact\LaravelReact\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

@@ -84,4 +84,4 @@ class AddProductos extends Component {
   }
 }
 
-export default AddProduct;
+export default AddProductos;

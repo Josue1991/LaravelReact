@@ -13,7 +13,7 @@ const Productos = ({producto}) => {
   }
 
   //if the props for product is null, return Product doesn't exist
-  if(!product) {
+  if(!producto) {
 
     return(<div style={divStyle}><h2>  No Product was selected </h2> </div>);
   }
@@ -21,10 +21,10 @@ const Productos = ({producto}) => {
   //Else, display the product data
   return(  
     <div style={divStyle}> 
-      <h2> {product.title} </h2>
-      <p> {product.descripcion} </p>
-      <h3> Status {product.disponibilidad ? 'Available' : 'Out of stock'} </h3>
-      <h3> Price : {product.precio} </h3>
+      <h2> {producto.title} </h2>
+      <p> {producto.descripcion} </p>
+      <h3> Status {producto.disponibilidad ? 'Available' : 'Out of stock'} </h3>
+      <h3> Price : {producto.precio} </h3>
      
     </div>
   )
